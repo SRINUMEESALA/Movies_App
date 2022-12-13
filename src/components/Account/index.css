@@ -1,5 +1,5 @@
 .accountCon {
-  width: 90%;
+  width: 90vw;
 }
 @media (min-width: 767px) {
   .userDetailsCon p {

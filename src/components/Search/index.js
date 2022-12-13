@@ -8,6 +8,7 @@ import {apiStatusConstants} from '../Home/index'
 import './index.css'
 import Header from '../Header'
 import MovieContext from '../../context'
+import MovieCard from '../MovieCard'
 
 class Search extends Component {
   state = {
@@ -120,15 +121,7 @@ class Search extends Component {
                 ) : (
                   <ul className="cardsOfSearch list-unstyled flex-wrap d-flex justify-content-start">
                     {resultList.map(obj => (
-                      <li className="col-md-3 mb-2 mt-2" key={obj.id}>
-                        <Link className="" to={`/movies/${obj.id}`}>
-                          <img
-                            src={obj.posterPath}
-                            alt={obj.title}
-                            className="img-thumbnail"
-                          />
-                        </Link>
-                      </li>
+                      <MovieCard obj={obj} key={uuidv4()} />
                     ))}
                   </ul>
                 )}

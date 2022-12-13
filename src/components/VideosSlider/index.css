@@ -45,7 +45,9 @@
   outline: none;
   border-style: none;
 }
-
+.sliderCard {
+  height: 60vh;
+}
 @media (max-width: 767px) {
   .prevBtn {
     left: -15px;

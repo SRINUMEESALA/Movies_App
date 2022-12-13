@@ -5,7 +5,11 @@ const MovieCard = props => {
   return (
     <li className="col-md-3 mb-2 mt-2">
       <Link to={`/movies/${obj.id}`}>
-        <img src={obj.posterPath} alt={obj.title} className="img-thumbnail" />
+        <img
+          src={obj.posterPath}
+          alt={obj.title}
+          className="img-thumbnail h-100"
+        />
       </Link>
     </li>
   )

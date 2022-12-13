@@ -67,9 +67,16 @@ const VideosSlider = props => {
         </button>
         <Slider {...settings} ref={slider}>
           {videosList.map(obj => (
-            <div className="card shadow mr-3" key={uuidv4()}>
+            <div
+              className="card shadow mr-3 sliderCard bg-danger"
+              key={uuidv4()}
+            >
               <Link to={`/movies/${obj.id}`}>
-                <img src={obj.posterPath} alt={obj.title} className="w-100" />
+                <img
+                  src={obj.posterPath}
+                  alt={obj.title}
+                  className="w-100 h-100"
+                />
                 {/* <img src={obj.backdropPath} alt={obj.title} className="w-100" / */}
               </Link>
             </div>
