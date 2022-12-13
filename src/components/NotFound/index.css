@@ -1,0 +1,8 @@
+.notFoundCon {
+  background-image: url('https://res.cloudinary.com/radhekrishn/image/upload/v1670579401/MovieApp/snow-removal-machine-working-high-ski-slope-snowstorm_454047-2149_1_notFound_qy9vno.png');
+  background-size: cover;
+}
+.notFoundImg {
+  width: 50vh;
+  height: 50vh;
+}

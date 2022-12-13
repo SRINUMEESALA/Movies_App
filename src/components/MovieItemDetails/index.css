@@ -1,0 +1,19 @@
+.moviesDetailsParentCon {
+  background-color: #0c0b10;
+}
+.movieInfoCon {
+  width: 90%;
+}
+.movieInfoCon h1 {
+  color: lightblue;
+}
+.sensorship {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: white;
+}
+@media (max-width: 768px) {
+  .movieInfoCon h1 {
+    font-size: 16px;
+  }
+}

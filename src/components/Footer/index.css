@@ -1,0 +1,26 @@
+.footerIcon li {
+  font-size: 20px;
+  margin-right: 50px;
+}
+.footerCon {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+.footerIcon button {
+  outline: none;
+  background-color: transparent;
+  border-style: none;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .footerIcon li {
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  .footerCon {
+    padding-top: 40px;
+    padding-bottom: 15px;
+  }
+}

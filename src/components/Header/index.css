@@ -1,0 +1,39 @@
+.navParentContainer {
+  background-color: rgba(15, 15, 15, 0.8);
+}
+.link,
+.button {
+  all: unset;
+  cursor: pointer;
+}
+.button:focus {
+  all: unset;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .inputSm {
+    height: 25px !important;
+  }
+  .searchConSm {
+    height: 25px;
+  }
+  .websiteLogoInHeader {
+    height: 22px;
+  }
+  .navbarSm li {
+    margin-top: 10px;
+  }
+}
+@media (min-width: 768px) {
+  .navContainer {
+    width: 90%;
+  }
+  .profile {
+    width: 35px;
+    height: 35px;
+  }
+  .websiteLogoInHeader {
+    height: 35px;
+  }
+}

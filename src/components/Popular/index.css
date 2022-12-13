@@ -1,0 +1,11 @@
+.popularCon {
+  padding-top: 12vh;
+}
+.popularVideosListCon {
+  width: 90%;
+}
+@media (max-width: 767px) {
+  .popularHeading {
+    font-size: 25px;
+  }
+}

@@ -1,0 +1,39 @@
+.loginParentCon {
+  background-image: url('https://res.cloudinary.com/radhekrishn/image/upload/v1670579408/MovieApp/netfilx_1_LoginbgImage_fmn29f.png');
+  background-size: cover;
+}
+.navCon {
+  width: 90%;
+}
+.loginFormCon {
+  background-color: rgba(12, 11, 16, 0.7);
+  background-color: #0c0b10;
+}
+.loginButton {
+  background: #e50914;
+}
+.loginHead {
+  padding: 16px;
+}
+
+@media (max-width: 995px) {
+  /* for smaller screens */
+  .websiteLogo {
+    height: 28px;
+  }
+  .loginFormCon {
+    padding: 16px 27px 27px 27px;
+    width: 86vw;
+  }
+}
+
+@media (min-width: 996px) {
+  /* for larger screens */
+  .websiteLogo {
+    height: 40px;
+  }
+  .loginFormCon {
+    padding: 16px 27px 27px 27px;
+    width: 25vw;
+  }
+}

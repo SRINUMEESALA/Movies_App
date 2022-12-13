@@ -1,0 +1,15 @@
+@media (max-width: 767px) {
+  .cardsOfSearch {
+    width: 90%;
+    margin-top: 10vh;
+  }
+  .noResultsImgSm {
+    width: 75%;
+  }
+}
+@media (min-width: 768px) {
+  .cardsOfSearch {
+    width: 90%;
+    margin-top: 13vh;
+  }
+}

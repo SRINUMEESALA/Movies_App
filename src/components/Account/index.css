@@ -1,0 +1,16 @@
+.accountCon {
+  width: 90%;
+}
+@media (min-width: 767px) {
+  .userDetailsCon p {
+    font-size: 20px;
+  }
+  .userDetailsCon h1 {
+    font-size: 20px;
+  }
+}
+.passwordMasked {
+  outline: none;
+  background-color: transparent !important;
+  border-style: none;
+}
