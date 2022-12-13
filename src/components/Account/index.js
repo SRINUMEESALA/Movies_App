@@ -1,5 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
 import './index.css'
 import Header from '../Header'
 import MovieContext from '../../context'
@@ -11,6 +13,47 @@ class Account extends Component {
     Cookies.remove('jwt_token')
     history.replace('/login')
   }
+
+  logoutPopUp = () => (
+    <Popup
+      modal
+      trigger={
+        <button
+          type="button"
+          className="btn btn-outline-danger"
+          onClick={this.loggingOut}
+        >
+          Logout
+        </button>
+      }
+      className="popup-content border border-light"
+    >
+      {close => (
+        <div className="">
+          <div className="">
+            <p className="h4 text-center">Are you sure, you want to logout?</p>
+            <div className="d-flex justify-content-around mt-5">
+              <button
+                type="button"
+                className="btn btn-outline-light"
+                onClick={close}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={this.loggingOut}
+                style={{backgroundColor: '#e50914'}}
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </Popup>
+  )
 
   render() {
     return (
@@ -53,15 +96,8 @@ class Account extends Component {
                   <div className="bg-white">
                     <hr />
                   </div>
-                  <div className="text-right">
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger"
-                      onClick={this.loggingOut}
-                    >
-                      Logout
-                    </button>
-                  </div>
+
+                  <div className="text-right">{this.logoutPopUp()}</div>
                 </div>
               </div>
               <Footer />

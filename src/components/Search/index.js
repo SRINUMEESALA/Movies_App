@@ -2,7 +2,6 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
-import {Link} from 'react-router-dom'
 import {v4 as uuidv4} from 'uuid'
 import {apiStatusConstants} from '../Home/index'
 import './index.css'
@@ -95,14 +94,7 @@ class Search extends Component {
       <div className="min-vh-100 d-flex justify-content-center align-items-center">
         <MovieContext.Consumer>
           {value => {
-            const {updateActiveRoute, activeRoute} = value
-            // eslint-disable-next-line no-lone-blocks
-            {
-              /* if (activeRoute !== 'Search') {
-              updateActiveRoute('Search')
-              return null
-            } */
-            }
+            console.log(value)
             return (
               <>
                 {resultList.length === 0 ? (

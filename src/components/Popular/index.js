@@ -1,8 +1,8 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+import ReactPaginate from 'react-paginate'
 import {v4 as uuidv4} from 'uuid'
 import {apiStatusConstants} from '../Home/index'
 import './index.css'
@@ -10,8 +10,13 @@ import Header from '../Header'
 import Footer from '../Footer'
 import MovieCard from '../MovieCard'
 
+const noOfCardsPerPage = 8
 class Popular extends Component {
-  state = {popularApiStatus: 'initial', popularVideosList: []}
+  state = {
+    popularApiStatus: 'initial',
+    popularVideosList: [],
+    popularPaginationList: [],
+  }
 
   componentDidMount() {
     this.getPopularVideos()
@@ -36,7 +41,7 @@ class Popular extends Component {
       },
     }
     const response = await fetch(
-      'https://apis.ccbp.in/movies-app/popular-movies',
+      'https://apis.ccbp.in/movies-app/popular-movies?offset=0&limit=5',
       options,
     )
     const data = await response.json()
@@ -47,22 +52,60 @@ class Popular extends Component {
       this.setState({
         popularApiStatus: apiStatusConstants.success,
         popularVideosList: results,
+        popularPaginationList: results.slice(0, noOfCardsPerPage),
       })
     } else {
       this.setState({popularApiStatus: apiStatusConstants.fail})
     }
   }
 
-  renderSuccessView = () => {
+  handlePageClick = data => {
     const {popularVideosList} = this.state
+    const pageNumber = data.selected + 1
+    const startIndex = pageNumber * noOfCardsPerPage - noOfCardsPerPage
+    const finalIndex = pageNumber * noOfCardsPerPage
+    const pagedData = popularVideosList.slice(startIndex, finalIndex)
+
+    this.setState({
+      popularPaginationList: pagedData,
+    })
+  }
+
+  renderSuccessView = () => {
+    const {popularPaginationList, popularVideosList} = this.state
+    const totalPagesCount = Math.ceil(
+      popularVideosList.length / noOfCardsPerPage,
+    )
+
     return (
       <div className="popularVideosListCon align-self-center text-white">
         <h1 className="h3 popularHeading">Popular Movies</h1>
         <ul className="list-unstyled flex-wrap d-flex justify-content-between w-100">
-          {popularVideosList.map(obj => (
+          {popularPaginationList.map(obj => (
             <MovieCard key={uuidv4()} obj={obj} />
           ))}
         </ul>
+        <div className="d-flex justify-content-center mt-5">
+          <ReactPaginate
+            previousLabel="Previous"
+            nextLabel="Next"
+            breakLabel="..."
+            pageCount={totalPagesCount}
+            marginPagesDisplayed={3}
+            pageRangeDisplayed={3}
+            onPageChange={this.handlePageClick}
+            containerClassName="pagination"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-link"
+            nextLinkClassName="page-item"
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            activeClassName="active"
+          />
+        </div>
       </div>
     )
   }

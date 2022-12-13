@@ -10,11 +10,13 @@ import {apiStatusConstants} from '../Home/index'
 import './index.css'
 import Footer from '../Footer'
 import Header from '../Header'
+import VideoPlayer from '../VideoPlayer'
 
 class MovieItemDetails extends Component {
   state = {
     movieItemDetailsApiStatus: 'initial',
     movieDetails: {},
+    showPlayer: false,
   }
 
   componentDidMount() {
@@ -112,7 +114,7 @@ class MovieItemDetails extends Component {
   )
 
   renderSuccessView = () => {
-    const {movieDetails} = this.state
+    const {movieDetails, showPlayer} = this.state
     const {
       backdropPath,
       budget,
@@ -132,36 +134,45 @@ class MovieItemDetails extends Component {
     return (
       <div className="d-flex flex-column">
         <Header />
-        <div
-          className="moviesDetailsParentCon BannerPlsCard d-flex flex-column "
-          style={{
-            backgroundImage: `url(${backdropPath})`,
-          }}
-        >
-          <div className="posterCard d-flex flex-column align-self-md-center justify-content-md-center justify-content-end ">
-            <div className="cardConBanner ">
-              <div className="card-body text-white">
-                <h1 className="h3">{title}</h1>
-                <div className="d-flex">
-                  <p className="mr-3">
-                    {`${Math.round(runtimeIt / 60)}h ${Math.round(
-                      runtimeIt % 60,
-                    )}m`}
-                  </p>
-                  <p className="mr-3 sensorship border border-white font-weight-bold">
-                    {adult ? 'A' : ' U/A'}
-                  </p>
-                  <p className="">{format(new Date(releaseDate), 'yyyy')}</p>
+        {showPlayer ? (
+          <VideoPlayer />
+        ) : (
+          <div
+            className="moviesDetailsParentCon BannerPlsCard d-flex flex-column "
+            style={{
+              backgroundImage: `url(${backdropPath})`,
+            }}
+          >
+            <div className="posterCard d-flex flex-column align-self-md-center justify-content-md-center justify-content-end ">
+              <div className="cardConBanner ">
+                <div className="card-body text-white">
+                  <h1 className="h3">{title}</h1>
+                  <div className="d-flex">
+                    <p className="mr-3">
+                      {`${Math.round(runtimeIt / 60)}h ${Math.round(
+                        runtimeIt % 60,
+                      )}m`}
+                    </p>
+                    <p className="mr-3 sensorship border border-white font-weight-bold">
+                      {adult ? 'A' : ' U/A'}
+                    </p>
+                    <p className="">{format(new Date(releaseDate), 'yyyy')}</p>
+                  </div>
+                  <p className="card-text">{overview}</p>
+                  <button
+                    className="btn btn-light pl-4 pr-4"
+                    type="button"
+                    onClick={() => this.setState({showPlayer: true})}
+                  >
+                    Play
+                  </button>
                 </div>
-                <p className="card-text">{overview}</p>
-                <button className="btn btn-light pl-4 pr-4" type="button">
-                  Play
-                </button>
               </div>
             </div>
           </div>
-        </div>
-        <div className="text-white movieInfoCon align-self-center row">
+        )}
+
+        <div className="text-white movieInfoCon align-self-center row pt-3">
           <div className="col-md-3 col-4 d-flex justify-content-start flex-column">
             <>
               <h1 className="h5">Genres</h1>
@@ -218,12 +229,12 @@ class MovieItemDetails extends Component {
             <ul className="list-unstyled d-flex flex-wrap">
               {similarMovies.map(obj => (
                 <li key={obj.id} className="col-md-3 col-6 p-2 mb-3">
-                  <Link to={`/movies/${obj.id}`}>
-                    <div className="">
+                  <Link to={`/movies/${obj.id}`} className="h-100">
+                    <div className="h-100">
                       <img
                         src={obj.poster_path}
                         alt={obj.title}
-                        className="w-100 rounded"
+                        className="w-100 rounded h-100"
                         onClick={() => this.getMovieDetails(obj.id)}
                       />
                     </div>
