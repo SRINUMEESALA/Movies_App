@@ -5,7 +5,7 @@ import './index.css'
 import MovieContext from '../../context'
 
 class Login extends Component {
-  state = {errorMsg: '', username: '', password: ''}
+  state = {errorMsg: '', username: 'raja', password: 'raja@2021'}
 
   fillingForm = event => {
     this.setState({[event.target.name]: event.target.value})
