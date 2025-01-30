@@ -112,7 +112,7 @@ class Popular extends Component {
 
   renderLoadingView = () => (
     <div className="vh-100 d-flex align-items-center justify-content-center w-100 ">
-      <div className="loader-container mt-5" testid="loader">
+      <div className="loader-container mt-5">
         <Loader type="TailSpin" color="#e50914" height={50} width={50} />
       </div>
     </div>

@@ -51,10 +51,7 @@ class Login extends Component {
         {value => {
           const {updatePassword, updateUsername} = value
           return (
-            <div
-              className="loginParentCon vh-100 d-flex flex-column justify-content-center"
-              testid="login"
-            >
+            <div className="loginParentCon vh-100 d-flex flex-column justify-content-center">
               <div className="d-flex justify-content-center fixed-top">
                 <nav className="navCon pt-4 pb-2">
                   <img

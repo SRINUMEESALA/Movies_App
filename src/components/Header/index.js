@@ -61,7 +61,6 @@ class Header extends Component {
                       <button
                         type="button"
                         className="button"
-                        testid="searchButton"
                         onClick={() => {
                           this.sendToSearch()
                           updateActiveRoute('Search')
@@ -76,7 +75,6 @@ class Header extends Component {
                     <button
                       type="button"
                       className="button"
-                      testid="searchButton"
                       onClick={() => updateActiveRoute('Search')}
                     >
                       <HiOutlineSearch className="mb-2 h6  mt-2 text-white" />
@@ -159,7 +157,6 @@ class Header extends Component {
                             <button
                               type="button"
                               className="button"
-                              testid="searchButton"
                               onClick={() => {
                                 this.sendToSearch()
                                 updateActiveRoute('Search')
@@ -175,7 +172,6 @@ class Header extends Component {
                             <button
                               type="button"
                               className="button"
-                              testid="searchButton"
                               onClick={() => updateActiveRoute('Search')}
                             >
                               <HiOutlineSearch className="mb-0 h5  mt-2 text-white" />
@@ -194,7 +190,6 @@ class Header extends Component {
                                   ? 'button text-warning'
                                   : 'button'
                               }
-                              testid="searchButton"
                               onClick={() => updateActiveRoute('Account')}
                             >
                               <img

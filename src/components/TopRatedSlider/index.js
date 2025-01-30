@@ -51,10 +51,7 @@ class TopRatedSlider extends Component {
   }
 
   renderLoadingView2 = () => (
-    <div
-      className=" d-flex align-items-center justify-content-center w-100 "
-      testid="loader"
-    >
+    <div className=" d-flex align-items-center justify-content-center w-100 ">
       <div className="loader-container mt-5">
         <Loader type="TailSpin" color="#e50914" height={50} width={50} />
       </div>
